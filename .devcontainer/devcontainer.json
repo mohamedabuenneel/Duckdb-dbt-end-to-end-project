@@ -1,0 +1,23 @@
+{
+	"name": "Python 3 (ingestion/transformation)",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": { 
+			"PLATFORM": "amd64" 
+		}
+	},
+	"mounts": [
+		"source=${localEnv:HOME}/.config/gcloud,target=/root/.config/gcloud,type=bind",
+		"source=${localEnv:HOME}/.aws,target=/root/.aws,type=bind"
+	],
+	"remoteUser": "root",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"ms-python.python"
+			]
+		}
+	}
+}

@@ -1,0 +1,6 @@
+pandas
+duckdb
+dbt-core
+dbt-bigquery
+google-cloud-bigquery
+pyarrow
