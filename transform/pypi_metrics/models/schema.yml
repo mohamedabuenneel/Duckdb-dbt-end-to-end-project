@@ -1,0 +1,6 @@
+version: 2
+# dah lama agy a3ml table fel database haykon esmo eh ?!
+# el file dah bygawb 3ala question dah 
+models:
+  - name: pypi_daily_stats
+    description: "Daily downloads of a package from PyPI"

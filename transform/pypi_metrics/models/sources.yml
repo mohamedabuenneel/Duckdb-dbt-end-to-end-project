@@ -1,0 +1,18 @@
+version: 2
+
+
+sources:
+  #aknha esm el database 
+  - name: external_source
+    meta:
+    #el location bta3 el database de  
+      external_location: "{{ env_var('TRANSFORM_S3_PATH_OUTPUT') }}"
+    tables:
+      - name: pypi_file_downloads 
+  - name: "{{ var('database_name', 'duckdb_stats') }}"
+    schema: main
+    tables:
+      - name: pypi_file_downloads
+
+
+

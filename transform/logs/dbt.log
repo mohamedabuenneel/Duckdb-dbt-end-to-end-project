@@ -1,0 +1,31 @@
+[0m12:26:44.078170 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bbcdb788e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bbcdb72e190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bbcdb738b50>]}
+
+
+============================== 12:26:44.113033 | 0f43ccb5-3bf4-44bc-9552-f243a4aaf2f2 ==============================
+[0m12:26:44.113033 [info ] [MainThread]: Running with dbt=1.10.8
+[0m12:26:44.113622 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/root/.dbt', 'version_check': 'True', 'warn_error': 'None', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'invocation_command': 'dbt init', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m12:26:44.155215 [info ] [MainThread]: Creating dbt configuration folder at /root/.dbt
+[0m12:27:34.720225 [debug] [MainThread]: Starter project path: /root/.cache/pypoetry/virtualenvs/myproject-JwI_ODXd-py3.11/lib/python3.11/site-packages/dbt/include/starter_project
+[0m12:27:34.731240 [info ] [MainThread]: 
+Your new dbt project "pypi_metrics" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m12:27:34.732949 [info ] [MainThread]: Setting up your profile.
+[0m12:27:45.606841 [info ] [MainThread]: Profile pypi_metrics written to /root/.dbt/profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
+[0m12:27:45.617153 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 61.590103, "process_in_blocks": "42712", "process_kernel_time": 0.333354, "process_mem_max_rss": "122432", "process_out_blocks": "31672", "process_user_time": 2.929114}
+[0m12:27:45.619789 [debug] [MainThread]: Command `dbt init` succeeded at 12:27:45.619204 after 61.59 seconds
+[0m12:27:45.621761 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bbcdb6ff2d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bbcdb6fe650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bbcdfce5b90>]}
+[0m12:27:45.623990 [debug] [MainThread]: Flushing usage events
+[0m12:27:46.556368 [debug] [MainThread]: An error was encountered while trying to flush usage events
