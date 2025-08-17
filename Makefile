@@ -7,7 +7,7 @@ export $(shell sed 's/=.*//' .env)
 # --database_name $$DATABASE_NAME \
 
 DBT_FOLDER=transform/pypi_metrics/
-DBT_TARGET=dev
+DBT_TARGET=prod
 
 
 .PHONY : pypi-ingest format

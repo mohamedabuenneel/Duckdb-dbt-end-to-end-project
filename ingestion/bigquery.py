@@ -16,13 +16,25 @@ def build_pypi_query(
     # Query the public PyPI dataset from BigQuery
     # /!\ This is a large dataset, filter accordingly /!\
     return f"""
-    SELECT *
+    SELECT 
+        TIMESTAMP_TRUNC(timestamp, MONTH) AS month_start_date,
+        details.system.name,
+        details.system.release,
+        file.version,
+        project,
+        country_code,
+        details.cpu,
+        details.python,
+        COUNT(*) AS monthly_download_sum
     FROM
         `{pypi_public_dataset}`
     WHERE
         project = '{params.pypi_project}'
         AND {params.timestamp_column} >= TIMESTAMP("{params.start_date}")
         AND {params.timestamp_column} < TIMESTAMP("{params.end_date}")
+    GROUP BY 1,2,3,4,5,6,7,8
+    ORDER BY
+        month_start_date;
     """
 
 
@@ -54,12 +66,15 @@ def get_bigquery_client(project_name: str) -> bigquery.Client:
 def get_bigquery_result(
     query_str: str, bigquery_client: bigquery.Client) -> pd.DataFrame:
     """Get query result from BigQuery and yield rows as dictionaries."""
+    # job_config = bigquery.QueryJobConfig(dry_run=True, use_query_cache=False)
+
     try:
         # Start measuring time
         start_time = time.time()
         # Run the query and directly load into a DataFrame
         logger.info(f"Running query: {query_str}")
         dataframe = bigquery_client.query(query_str).to_dataframe()
+        # print(f"This query will process {query_job.total_bytes_processed/1e9:.2f} GB")
         # Log the time taken for query execution and data loading
         elapsed_time = time.time() - start_time
         logger.info(f"Query executed and data loaded in {elapsed_time:.2f} seconds")

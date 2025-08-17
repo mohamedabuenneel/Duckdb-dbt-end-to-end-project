@@ -33,6 +33,12 @@ models:
   pypi_metrics:
     pypi_daily_stats:
       +materialized: table
+      +unique_key: load_id
+      +pre-hook: "{% if target.name == 'dev' %}CALL load_aws_credentials(){% endif %}"
+      +post-hook: "{% if target.name == 'dev' %}{{ export_partition_data('download_date', this.name ) }}{% endif %}"
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+
+
+# "{{ 'incremental' if target.name == 'prod' else 'table' }}"

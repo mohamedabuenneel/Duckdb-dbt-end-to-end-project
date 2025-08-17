@@ -24,8 +24,8 @@ def write_to_s3(duckdb_con, table:str, s3_path:str, timestamp_column: str):
         f"""
         COPY (
             SELECT *,
-                YEAR({timestamp_column}) AS year, 
-                MONTH({timestamp_column}) AS month 
+                YEAR(month_start_date) AS year, 
+                MONTH(month_start_date) AS month 
             FROM {table}
         ) 
         TO '{s3_path}/{table}' 

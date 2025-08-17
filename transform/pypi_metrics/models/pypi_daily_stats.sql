@@ -3,21 +3,22 @@
 
 WITH pre_aggregated_data AS (
     SELECT
-        timestamp :: date as download_date,
-        details.system.name AS system_name,
-        details.system.release AS system_release,
-        file.version AS version,
+        month_start_date :: date as download_date,
+        name AS system_name,
+        release AS system_release,
+        version,
         project,
         country_code,
-        details.cpu,
+        cpu,
         CASE
-            WHEN details.python IS NULL THEN NULL
+            WHEN python IS NULL THEN NULL
             ELSE CONCAT(
-                SPLIT_PART(details.python, '.', 1),
+                SPLIT_PART(python, '.', 1),
                 '.',
-                SPLIT_PART(details.python, '.', 2)
+                SPLIT_PART(python, '.', 2)
             )
-        END AS python_version
+        END AS python_version,
+        monthly_download_sum
     FROM
         {{ 
             source('external_source','pypi_file_downloads')
@@ -37,7 +38,7 @@ SELECT
     country_code,
     cpu,
     python_version,
-    COUNT(*) AS daily_download_sum
+    monthly_download_sum    
 FROM
     pre_aggregated_data
 GROUP BY
