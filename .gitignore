@@ -1,3 +1,4 @@
 .env
 myKey.json
 logs/dbt.log
+logs/dbt.log
