@@ -1,6 +1,15 @@
 # Pypi Duck Flow : Get insights of your python project 🐍
 
-This project is a collections of pipelines to get insights of your python project. It also serves as educational purpose (YouTube videos and blogs) to learn how to build data pipelines with **Python**, **SQL** & **DuckDB**.
+This project is a collections of pipelines to get insights of your python project. It also serves as educational purpose (YouTube videos and blogs) to learn how to build data pipelines with **Python**, **SQL** & **DuckDB**
+
+
+📖 Overview
+
+This project demonstrates how to build a complete, production-ready data pipeline for analyzing Python package download statistics from PyPI.
+It covers the entire journey — from data ingestion to transformation and validation — using modern, local-first data engineering tools.
+
+The pipeline ingests raw download data from Google BigQuery, processes and validates it with Python and DuckDB, and then transforms it into analytics-ready datasets using dbt.
+Finally, the processed data is exported to AWS S3 or MotherDuck for further analysis and BI integration..
 
 ## High level architecture
 ![High level architecture](./docs/etl_architecture.png)
